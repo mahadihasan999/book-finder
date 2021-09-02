@@ -1,5 +1,25 @@
 
+// Create Arroy function
+const displaySpinner = toggleSpinner => {
+    document.getElementById('spinner').style.display = toggleSpinner;
+}
+const displayResult = showResult => {
+    document.getElementById('search-result').style.display = showResult;
+}
+const totalReusltFound = foundResult => {
+    document.getElementById('display-total').style.display = foundResult;
+}
+const displayError1 = foundError1 => {
+    document.getElementById('error-message1').style.display = foundError1;
+}
+const displayError2 = foundError2 => {
+    document.getElementById('error-message2').style.display = foundError2;
+}
+const displayError3 = foundError3 => {
+    document.getElementById('total-book-found').style.display = foundError3;
+}
 
+// Search button fucntion
 const searchBook = () => {
 
     //function calling
@@ -25,11 +45,11 @@ const searchBook = () => {
     }
     else {
         // load data
-        const url = `http://openlibrary.org/search.json?q=${searchText}`;
+        const url = `https://openlibrary.org/search.json?q=${searchText}`;
         // json convert
         fetch(url)
             .then(res => res.json())
-            .then(data => displaySearchResult(data.docs.slice(0, 50)))
+            .then(data => displaySearchResult(data.docs.slice(0, 30)))
     }
 }
 
@@ -85,22 +105,3 @@ const displaySearchResult = docs => {
 
 }
 
-// Create Arroy function
-const displaySpinner = toggleSpinner => {
-    document.getElementById('spinner').style.display = toggleSpinner;
-}
-const displayResult = showResult => {
-    document.getElementById('search-result').style.display = showResult;
-}
-const totalReusltFound = foundResult => {
-    document.getElementById('display-total').style.display = foundResult;
-}
-const displayError1 = foundError1 => {
-    document.getElementById('error-message1').style.display = foundError1;
-}
-const displayError2 = foundError2 => {
-    document.getElementById('error-message2').style.display = foundError2;
-}
-const displayError3 = foundError3 => {
-    document.getElementById('total-book-found').style.display = foundError3;
-}
